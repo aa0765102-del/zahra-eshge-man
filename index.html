@@ -15,18 +15,21 @@
 body{
     margin:0;
     min-height:100vh;
-    font-family:Tahoma, Arial, sans-serif;
-    background:linear-gradient(135deg,#ffb6d5,#ffd9e8,#fff5fa);
+    font-family:Tahoma,Arial,sans-serif;
+    background:
+    radial-gradient(circle at 15% 20%,#ffffffaa 0 5%,transparent 6%),
+    linear-gradient(135deg,#ffb6d5,#ffd9e8,#fff5fa);
     overflow-x:hidden;
     color:#4a1830;
 }
 
 /* قلب‌های متحرک */
+
 .hearts{
     position:fixed;
     inset:0;
-    pointer-events:none;
     overflow:hidden;
+    pointer-events:none;
     z-index:0;
 }
 
@@ -34,278 +37,461 @@ body{
     position:absolute;
     bottom:-80px;
     animation:floatUp linear infinite;
-    opacity:.75;
 }
 
 @keyframes floatUp{
-    0%{
-        transform:translateY(0) rotate(0deg);
-        opacity:0;
-    }
 
-    10%{
-        opacity:.8;
-    }
-
-    100%{
-        transform:translateY(-115vh) rotate(360deg);
-        opacity:0;
-    }
+0%{
+    transform:translateY(0) rotate(0);
+    opacity:0;
 }
 
-/* صفحه اصلی */
+10%{
+    opacity:.8;
+}
+
+100%{
+    transform:translateY(-115vh) rotate(360deg);
+    opacity:0;
+}
+
+}
+
+/* صفحه */
+
 .page{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:25px 15px;
-    position:relative;
-    z-index:2;
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:25px 15px;
+
+position:relative;
+
+z-index:2;
+
 }
 
 /* کارت اصلی */
+
 .card{
-    width:min(720px,95vw);
-    background:rgba(255,255,255,.82);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    border:2px solid rgba(255,255,255,.8);
-    border-radius:35px;
-    padding:35px 25px;
-    text-align:center;
-    box-shadow:
-        0 20px 60px rgba(170,40,90,.25),
-        inset 0 1px 0 white;
-    animation:cardEnter 1s ease;
+
+width:min(720px,95vw);
+
+background:rgba(255,255,255,.84);
+
+backdrop-filter:blur(15px);
+
+border:2px solid white;
+
+border-radius:35px;
+
+padding:35px 25px;
+
+text-align:center;
+
+box-shadow:
+
+0 20px 60px rgba(170,40,90,.25),
+
+inset 0 1px white;
+
+animation:cardEnter .8s ease;
+
 }
 
 @keyframes cardEnter{
-    from{
-        opacity:0;
-        transform:translateY(35px) scale(.93);
-    }
 
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
+from{
+
+opacity:0;
+
+transform:translateY(40px) scale(.92);
+
 }
 
+to{
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
+
+}
+
+/* قلب اصلی */
+
 .big-heart{
-    font-size:70px;
-    display:inline-block;
-    animation:heartBeat 1.1s infinite;
-    filter:drop-shadow(0 8px 8px #ff8abb);
+
+font-size:70px;
+
+display:inline-block;
+
+animation:heartBeat 1.1s infinite;
+
 }
 
 @keyframes heartBeat{
-    0%,100%{
-        transform:scale(1);
-    }
 
-    50%{
-        transform:scale(1.25);
-    }
+0%,100%{
+
+transform:scale(1);
+
 }
 
+50%{
+
+transform:scale(1.25);
+
+}
+
+}
+
+/* متن */
+
 h1{
-    color:#e91e63;
-    font-size:clamp(30px,7vw,50px);
-    margin:10px 0;
+
+color:#e91e63;
+
+font-size:clamp(30px,7vw,50px);
+
+margin:10px;
+
 }
 
 h2{
-    font-size:clamp(20px,5vw,30px);
-    margin:20px 0;
+
+font-size:clamp(20px,5vw,30px);
+
 }
 
 .info{
-    background:rgba(255,225,238,.8);
-    border-radius:22px;
-    padding:18px;
-    margin:15px auto;
-    line-height:2;
-    font-size:17px;
+
+background:#ffe4ef;
+
+padding:20px;
+
+border-radius:25px;
+
+line-height:2;
+
+font-size:17px;
+
 }
 
 .quote{
-    font-size:18px;
-    color:#b51d58;
-    font-weight:bold;
-    line-height:2;
-    margin:25px 5px;
+
+color:#b51d58;
+
+font-size:18px;
+
+font-weight:bold;
+
+margin:25px 5px;
+
+line-height:2;
+
 }
 
-/* دکمه‌ها */
+/* دکمه */
+
 .buttons{
-    min-height:85px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    position:relative;
+
+min-height:90px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:15px;
+
 }
 
 button{
-    border:0;
-    padding:15px 25px;
-    border-radius:50px;
-    font-size:18px;
-    font-family:inherit;
-    cursor:pointer;
-    transition:.25s;
-    box-shadow:0 8px 18px rgba(150,20,70,.22);
+
+border:0;
+
+padding:15px 25px;
+
+border-radius:50px;
+
+font-family:inherit;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.25s;
+
+box-shadow:0 8px 18px #d98aa955;
+
 }
 
 button:hover{
-    transform:translateY(-4px) scale(1.04);
+
+transform:translateY(-4px) scale(1.05);
+
 }
 
-#yes{
-    color:white;
-    background:linear-gradient(135deg,#e91e63,#ff4f8b);
+#yes,.next{
+
+background:linear-gradient(135deg,#e91e63,#ff4f8b);
+
+color:white;
+
 }
 
 #no{
-    color:white;
-    background:#777;
-    position:relative;
-}
 
-.next{
-    color:white;
-    background:linear-gradient(135deg,#e91e63,#ff4f8b);
-    margin-top:20px;
+background:#777;
+
+color:white;
+
+position:relative;
+
 }
 
 /* مراحل */
+
 .step{
-    display:none;
-    animation:stepIn .7s ease;
+
+display:none;
+
+animation:stepIn .6s ease;
+
 }
 
 .step.active{
-    display:block;
+
+display:block;
+
 }
 
 @keyframes stepIn{
-    from{
-        opacity:0;
-        transform:translateX(-30px);
-    }
 
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
+from{
+
+opacity:0;
+
+transform:translateX(-35px);
+
 }
 
-.step-title{
-    color:#e91e63;
-    margin-bottom:8px;
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
 }
 
-.step-subtitle{
-    color:#754257;
-    font-size:17px;
-    margin-bottom:25px;
 }
 
-/* کارت‌های انتخاب */
+/* گزینه‌ها */
+
 .options{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:16px;
+
 }
+
+/* کارت کارتونی */
 
 .option{
-    background:white;
-    border:3px solid transparent;
-    border-radius:25px;
-    padding:10px;
-    cursor:pointer;
-    overflow:hidden;
-    box-shadow:0 8px 22px rgba(130,40,75,.15);
-    transition:.3s;
+
+background:white;
+
+border:4px solid transparent;
+
+border-radius:28px;
+
+padding:12px;
+
+cursor:pointer;
+
+box-shadow:0 10px 25px #c75c8c25;
+
+transition:.3s;
+
+overflow:hidden;
+
 }
 
 .option:hover{
-    transform:translateY(-6px) rotate(1deg);
+
+transform:translateY(-7px) rotate(1deg);
+
 }
 
 .option.selected{
-    border-color:#e91e63;
-    transform:scale(1.04);
-    box-shadow:0 10px 28px rgba(233,30,99,.35);
+
+border-color:#e91e63;
+
+transform:scale(1.05);
+
+box-shadow:0 12px 30px #e91e6355;
+
 }
 
-.option img{
-    width:100%;
-    height:145px;
-    object-fit:cover;
-    border-radius:18px;
-    display:block;
+/* تصویر کارتونی */
+
+.food-picture{
+
+height:150px;
+
+border-radius:20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:85px;
+
+background:
+
+radial-gradient(circle,#fff 10%,#ffd5e5 65%,#ff9ec4);
+
+box-shadow:
+
+inset 0 0 20px white;
+
+animation:foodFloat 2.5s infinite ease-in-out;
+
+}
+
+@keyframes foodFloat{
+
+0%,100%{
+
+transform:translateY(0) rotate(-3deg);
+
+}
+
+50%{
+
+transform:translateY(-8px) rotate(3deg);
+
+}
+
 }
 
 .option-name{
-    font-size:18px;
-    font-weight:bold;
-    padding:12px 5px 5px;
+
+font-size:19px;
+
+font-weight:bold;
+
+padding:12px 5px 5px;
+
 }
 
-/* صفحه نتیجه */
+.next{
+
+margin-top:25px;
+
+}
+
+/* نتیجه */
+
 .result-box{
-    background:linear-gradient(135deg,#ffe0ed,#fff);
-    border-radius:25px;
-    padding:25px;
-    margin-top:20px;
-    line-height:2.2;
-    font-size:20px;
-    box-shadow:0 10px 30px rgba(233,30,99,.15);
+
+background:linear-gradient(135deg,#ffe0ed,#fff);
+
+border-radius:28px;
+
+padding:25px;
+
+font-size:20px;
+
+line-height:2.3;
+
+box-shadow:0 10px 30px #e91e6322;
+
 }
 
 .result-choice{
-    color:#e91e63;
-    font-weight:bold;
+
+font-size:24px;
+
+font-weight:bold;
+
+color:#e91e63;
+
 }
 
-/* افکت جشن */
+/* جشن */
+
 .confetti{
-    position:fixed;
-    top:-30px;
-    z-index:20;
-    pointer-events:none;
-    animation:fall linear forwards;
+
+position:fixed;
+
+top:-30px;
+
+z-index:30;
+
+pointer-events:none;
+
+animation:fall linear forwards;
+
 }
 
 @keyframes fall{
-    to{
-        transform:translateY(115vh) rotate(720deg);
-        opacity:0;
-    }
+
+to{
+
+transform:translateY(115vh) rotate(720deg);
+
+opacity:0;
+
 }
 
-/* حالت موبایل */
+}
+
+/* موبایل */
+
 @media(max-width:520px){
 
-    .card{
-        padding:25px 14px;
-        border-radius:28px;
-    }
+.card{
 
-    .option img{
-        height:115px;
-    }
+padding:25px 14px;
 
-    .option-name{
-        font-size:16px;
-    }
+}
 
-    button{
-        font-size:16px;
-        padding:13px 18px;
-    }
+.food-picture{
+
+height:115px;
+
+font-size:65px;
+
+}
+
+.option-name{
+
+font-size:16px;
+
+}
+
+button{
+
+font-size:16px;
+
+padding:13px 18px;
+
+}
 
 }
 
@@ -321,6 +507,7 @@ button:hover{
 <div class="card">
 
 <!-- مرحله اول -->
+
 <section class="step active" id="step1">
 
 <div class="big-heart">❤️</div>
@@ -332,35 +519,47 @@ button:hover{
 <div class="info">
 
 📅 تاریخ قرار:
+
 <br>
+
 <b>هروقت تو بگی عشقمم زهرا جوووونم ❤️</b>
 
 <br><br>
 
 👔 من:
+
 <br>
+
 <b>پیراهن طوسی + شلوار مشکی</b>
 
 <br><br>
 
 👗 تو:
+
 <br>
+
 <b>هر لباسی که باهاش احساس زیبایی و راحتی می‌کنی ❤️</b>
 
 </div>
 
 <div class="quote">
+
 «کنار تو حتی یک روز معمولی هم تبدیل به بهترین خاطره میشه.»
+
 </div>
 
 <div class="buttons">
 
 <button id="yes" onclick="goStep(2)">
+
 قبول کردم 😍
+
 </button>
 
 <button id="no">
+
 نه 🙈
+
 </button>
 
 </div>
@@ -368,177 +567,260 @@ button:hover{
 </section>
 
 
-<!-- مرحله دوم: غذا -->
+<!-- انتخاب غذا -->
+
 <section class="step" id="step2">
 
 <div class="big-heart">🍽️</div>
 
-<h1 class="step-title">
+<h1>
+
 عشقم، چی دوست داری بخوریم؟ 😋
+
 </h1>
 
-<p class="step-subtitle">
+<p>
+
 یکی رو انتخاب کن، قول میدم خوشمزه باشه 😍
+
 </p>
 
 <div class="options">
 
-<div class="option" onclick="selectFood(this,'فلافل 🥙')">
+<div class="option"
 
-<img
-src="https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?auto=format&fit=crop&w=700&q=80"
-alt="فلافل">
+onclick="selectFood(this,'فلافل 🥙')">
+
+<div class="food-picture">
+
+🥙
+
+</div>
 
 <div class="option-name">
+
 فلافل 🥙
-</div>
 
 </div>
 
+</div>
 
-<div class="option" onclick="selectFood(this,'قورمه‌سبزی 🍛')">
 
-<img
-src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"
-alt="قورمه سبزی">
+<div class="option"
+
+onclick="selectFood(this,'قورمه‌سبزی 🍛')">
+
+<div class="food-picture">
+
+🍛
+
+</div>
 
 <div class="option-name">
+
 قورمه‌سبزی 🍛
-</div>
 
 </div>
 
+</div>
 
-<div class="option" onclick="selectFood(this,'سیب‌زمینی سرخ‌کرده 🍟')">
 
-<img
-src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"
-alt="سیب زمینی سرخ کرده">
+<div class="option"
+
+onclick="selectFood(this,'سیب‌زمینی سرخ‌کرده 🍟')">
+
+<div class="food-picture">
+
+🍟
+
+</div>
 
 <div class="option-name">
+
 سیب‌زمینی سرخ‌کرده 🍟
-</div>
 
 </div>
 
+</div>
 
-<div class="option" onclick="selectFood(this,'آش 🍲')">
 
-<img
-src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80"
-alt="آش">
+<div class="option"
+
+onclick="selectFood(this,'آش 🍲')">
+
+<div class="food-picture">
+
+🍲
+
+</div>
 
 <div class="option-name">
+
 آش 🍲
-</div>
 
 </div>
 
 </div>
 
-<button class="next" onclick="nextFood()">
+</div>
+
+<button class="next"
+
+onclick="nextFood()">
+
 مرحله بعد 😍
+
 </button>
 
 </section>
 
 
-<!-- مرحله سوم: خوراکی -->
+<!-- انتخاب خوراکی -->
+
 <section class="step" id="step3">
 
 <div class="big-heart">😋</div>
 
-<h1 class="step-title">
+<h1>
+
 حالا برای خوراکی چی دوست داری؟ 😍
+
 </h1>
 
-<p class="step-subtitle">
+<p>
+
 اینجا انتخاب سخت‌تره، می‌دونم 😂❤️
+
 </p>
 
 <div class="options">
 
-<div class="option" onclick="selectSnack(this,'چیپس 🥔')">
+<div class="option"
 
-<img
-src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=700&q=80"
-alt="چیپس">
+onclick="selectSnack(this,'چیپس 🥔')">
+
+<div class="food-picture">
+
+🥔
+
+</div>
 
 <div class="option-name">
+
 چیپس 🥔
-</div>
 
 </div>
 
+</div>
 
-<div class="option" onclick="selectSnack(this,'پفک 🧀')">
 
-<img
-src="https://images.unsplash.com/photo-1621939514649-280e2aa8b197?auto=format&fit=crop&w=700&q=80"
-alt="پفک">
+<div class="option"
+
+onclick="selectSnack(this,'پفک 🧀')">
+
+<div class="food-picture">
+
+🧀
+
+</div>
 
 <div class="option-name">
+
 پفک 🧀
-</div>
 
 </div>
 
+</div>
 
-<div class="option" onclick="selectSnack(this,'بستنی 🍦')">
 
-<img
-src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80"
-alt="بستنی">
+<div class="option"
+
+onclick="selectSnack(this,'بستنی 🍦')">
+
+<div class="food-picture">
+
+🍦
+
+</div>
 
 <div class="option-name">
+
 بستنی 🍦
-</div>
 
 </div>
 
+</div>
 
-<div class="option" onclick="selectSnack(this,'همشون 😋')">
 
-<img
-src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80"
-alt="همه خوراکی‌ها">
+<div class="option"
+
+onclick="selectSnack(this,'همشون 😋')">
+
+<div class="food-picture">
+
+🍟🍦🥔
+
+</div>
 
 <div class="option-name">
+
 همشون 😋
-</div>
 
 </div>
 
 </div>
 
-<button class="next" onclick="showResult()">
+</div>
+
+<button class="next"
+
+onclick="showResult()">
+
 ثبت قرارمون ❤️
+
 </button>
 
 </section>
 
 
-<!-- مرحله آخر -->
-<section class="step" id="step4">
+<!-- نتیجه -->
 
-<div class="big-heart">💖</div>
+<section class="step"
+
+id="step4">
+
+<div class="big-heart">
+
+💖
+
+</div>
 
 <h1>
+
 قرارمون ثبت شد 😍
+
 </h1>
 
 <div class="result-box">
 
 🍽️ غذای انتخابی:
 
-<div class="result-choice" id="foodResult">
+<div class="result-choice"
+
+id="foodResult">
+
 —
+
 </div>
 
 😋 خوراکی انتخابی:
 
-<div class="result-choice" id="snackResult">
+<div class="result-choice"
+
+id="snackResult">
+
 —
+
 </div>
 
 <br>
@@ -564,358 +846,458 @@ alt="همه خوراکی‌ها">
 
 <script>
 
-/* ساخت قلب‌های متحرک */
+/* قلب‌ها */
 
-const hearts = document.getElementById("hearts");
+const hearts=
 
-for(let i = 0; i < 25; i++){
+document.getElementById("hearts");
 
-    const heart = document.createElement("span");
+const heartList=
 
-    heart.className = "floating-heart";
+["❤️","💕","💖","💗"];
 
-    const heartList = ["❤️","💕","💖","💗"];
+for(
 
-    heart.innerHTML =
-    heartList[
-        Math.floor(
-            Math.random() * heartList.length
-        )
-    ];
+let i=0;
 
-    heart.style.left =
-    Math.random() * 100 + "%";
+i<25;
 
-    heart.style.fontSize =
-    20 + Math.random() * 30 + "px";
+i++
 
-    heart.style.animationDuration =
-    5 + Math.random() * 7 + "s";
+){
 
-    heart.style.animationDelay =
-    Math.random() * 8 + "s";
+const heart=
 
-    hearts.appendChild(heart);
+document.createElement("span");
 
-}
+heart.className=
 
+"floating-heart";
 
-/* رفتن به مرحله بعد */
+heart.innerHTML=
 
-function goStep(number){
+heartList[
 
-    document
-    .querySelectorAll(".step")
-    .forEach(function(step){
+Math.floor(
 
-        step.classList.remove("active");
+Math.random()*heartList.length
 
-    });
-
-    document
-    .getElementById("step" + number)
-    .classList.add("active");
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
-
-
-/* دکمه نه که فرار می‌کند */
-
-const noButton =
-document.getElementById("no");
-
-const noTexts = [
-
-    "نه 🙈",
-
-    "مطمئنی؟ 🥺",
-
-    "یه بار دیگه فکر کن 😭",
-
-    "دل منو نشکن 🥹",
-
-    "آخه چرا؟ 😢",
-
-    "بزن قبول کردم دیگه 😂",
-
-    "دیگه راه فرار نداری 😎❤️"
+)
 
 ];
 
-let noCount = 0;
+heart.style.left=
+
+Math.random()*100+"%";
+
+heart.style.fontSize=
+
+20+
+
+Math.random()*30+
+
+"px";
+
+heart.style.animationDuration=
+
+5+
+
+Math.random()*7+
+
+"s";
+
+heart.style.animationDelay=
+
+Math.random()*8+
+
+"s";
+
+hearts.appendChild(heart);
+
+}
+
+
+/* تغییر مرحله */
+
+function goStep(number){
+
+document
+
+.querySelectorAll(".step")
+
+.forEach(
+
+step=>{
+
+step.classList
+
+.remove("active");
+
+}
+
+);
+
+document
+
+.getElementById(
+
+"step"+number
+
+)
+
+.classList
+
+.add("active");
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+/* دکمه نه */
+
+const noButton=
+
+document.getElementById("no");
+
+const noTexts=[
+
+"نه 🙈",
+
+"مطمئنی؟ 🥺",
+
+"یه بار دیگه فکر کن 😭",
+
+"دل منو نشکن 🥹",
+
+"آخه چرا؟ 😢",
+
+"بزن قبول کردم دیگه 😂",
+
+"دیگه راه فرار نداری 😎❤️"
+
+];
+
+let noCount=0;
 
 function moveNo(){
 
-    noCount++;
+noCount++;
 
-    noButton.innerText =
-    noTexts[
-        Math.min(
-            noCount,
-            noTexts.length - 1
-        )
-    ];
+noButton.innerText=
 
-    noButton.style.position =
-    "fixed";
+noTexts[
 
-    const maxX =
-    window.innerWidth -
-    noButton.offsetWidth -
-    15;
+Math.min(
 
-    const maxY =
-    window.innerHeight -
-    noButton.offsetHeight -
-    15;
+noCount,
 
-    noButton.style.left =
-    Math.random() * maxX + "px";
+noTexts.length-1
 
-    noButton.style.top =
-    Math.random() * maxY + "px";
+)
+
+];
+
+noButton.style.position=
+
+"fixed";
+
+const maxX=
+
+window.innerWidth-
+
+noButton.offsetWidth-
+
+15;
+
+const maxY=
+
+window.innerHeight-
+
+noButton.offsetHeight-
+
+15;
+
+noButton.style.left=
+
+Math.random()*maxX+
+
+"px";
+
+noButton.style.top=
+
+Math.random()*maxY+
+
+"px";
 
 }
 
 noButton.addEventListener(
 
-    "mouseenter",
+"mouseenter",
 
-    moveNo
+moveNo
 
 );
 
 noButton.addEventListener(
 
-    "touchstart",
+"touchstart",
 
-    function(event){
+event=>{
 
-        event.preventDefault();
+event.preventDefault();
 
-        moveNo();
+moveNo();
 
-    }
+}
 
 );
 
 
-/* انتخاب غذا */
+/* غذا */
 
-let selectedFood = "";
+let selectedFood="";
 
 function selectFood(
+
 element,
+
 food
+
 ){
 
-    document
-    .querySelectorAll(
-    "#step2 .option"
-    )
-    .forEach(function(item){
+document
 
-        item.classList.remove(
-        "selected"
-        );
+.querySelectorAll(
 
-    });
+"#step2 .option"
 
-    element.classList.add(
-    "selected"
-    );
+)
 
-    selectedFood = food;
+.forEach(
+
+item=>{
+
+item.classList
+
+.remove("selected");
 
 }
 
+);
 
-/* رفتن به مرحله خوراکی */
+element.classList
+
+.add("selected");
+
+selectedFood=food;
+
+}
+
 
 function nextFood(){
 
-    if(selectedFood === ""){
+if(
 
-        alert(
-        "اول غذاتو انتخاب کن عشقم 😄❤️"
-        );
+selectedFood===""
 
-        return;
-
-    }
-
-    goStep(3);
-
-}
-
-
-/* انتخاب خوراکی */
-
-let selectedSnack = "";
-
-function selectSnack(
-element,
-snack
 ){
 
-    document
-    .querySelectorAll(
-    "#step3 .option"
-    )
-    .forEach(function(item){
+alert(
 
-        item.classList.remove(
-        "selected"
-        );
+"اول غذاتو انتخاب کن عشقم 😄❤️"
 
-    });
+);
 
-    element.classList.add(
-    "selected"
-    );
+return;
 
-    selectedSnack = snack;
+}
+
+goStep(3);
 
 }
 
 
-/* نمایش نتیجه */
+/* خوراکی */
+
+let selectedSnack="";
+
+function selectSnack(
+
+element,
+
+snack
+
+){
+
+document
+
+.querySelectorAll(
+
+"#step3 .option"
+
+)
+
+.forEach(
+
+item=>{
+
+item.classList
+
+.remove("selected");
+
+}
+
+);
+
+element.classList
+
+.add("selected");
+
+selectedSnack=snack;
+
+}
+
+
+/* نتیجه */
 
 function showResult(){
 
-    if(selectedSnack === ""){
+if(
 
-        alert(
-        "خوراکی رو هم انتخاب کن خوش‌خوراک 😋❤️"
-        );
+selectedSnack===""
 
-        return;
+){
 
-    }
+alert(
 
-    document
-    .getElementById(
-    "foodResult"
-    )
-    .innerText =
-    selectedFood;
+"خوراکی رو هم انتخاب کن خوش‌خوراک 😋❤️"
 
-    document
-    .getElementById(
-    "snackResult"
-    )
-    .innerText =
-    selectedSnack;
+);
 
-    goStep(4);
+return;
 
-    celebrate();
+}
+
+document
+
+.getElementById(
+
+"foodResult"
+
+)
+
+.innerText=
+
+selectedFood;
+
+document
+
+.getElementById(
+
+"snackResult"
+
+)
+
+.innerText=
+
+selectedSnack;
+
+goStep(4);
+
+celebrate();
 
 }
 
 
-/* بارش قلب و جشن */
+/* بارش قلب */
 
 function celebrate(){
 
-    const celebrationItems = [
+const items=
 
-        "❤️",
+["❤️","💖","💕","✨","🎉"];
 
-        "💖",
+for(
 
-        "💕",
+let i=0;
 
-        "✨",
+i<80;
 
-        "🎉"
+i++
 
-    ];
+){
 
-    for(
-    let i = 0;
-    i < 80;
-    i++
-    ){
+const item=
 
-        const item =
-        document.createElement(
-        "div"
-        );
+document.createElement(
 
-        item.className =
-        "confetti";
+"div"
 
-        item.innerHTML =
+);
 
-        celebrationItems[
+item.className=
 
-            Math.floor(
+"confetti";
 
-                Math.random() *
+item.innerHTML=
 
-                celebrationItems.length
+items[
 
-            )
+Math.floor(
 
-        ];
+Math.random()*items.length
 
-        item.style.left =
+)
 
-        Math.random() *
+];
 
-        100 +
+item.style.left=
 
-        "vw";
+Math.random()*100+
 
-        item.style.fontSize =
+"vw";
 
-        15 +
+item.style.fontSize=
 
-        Math.random() *
+15+
 
-        25 +
+Math.random()*25+
 
-        "px";
+"px";
 
-        item.style.animationDuration =
+item.style.animationDuration=
 
-        2 +
+2+
 
-        Math.random() *
+Math.random()*3+
 
-        3 +
+"s";
 
-        "s";
+document.body
 
-        document.body
-        .appendChild(item);
+.appendChild(item);
 
-        setTimeout(
+setTimeout(
 
-            function(){
+()=>item.remove(),
 
-                item.remove();
+5500
 
-            },
+);
 
-            5500
-
-        );
-
-    }
+}
 
 }
 
 </script>
 
 </body>
-  </html>
+</html>
