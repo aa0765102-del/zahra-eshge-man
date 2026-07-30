@@ -2,43 +2,92 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>یه سوال مهم ❤️</title>
+<title>قرار ما ❤️</title>
+
 <style>
 body{
 font-family:tahoma;
-background:#ffd6e7;
+background:linear-gradient(#ffd1e8,#fff);
 text-align:center;
-margin-top:100px;
+padding-top:60px;
 }
+
+.card{
+background:white;
+width:85%;
+margin:auto;
+padding:25px;
+border-radius:25px;
+box-shadow:0 0 20px #aaa;
+}
+
+h1{
+color:#e91e63;
+}
+
 button{
+background:#e91e63;
+color:white;
+border:0;
 padding:15px 30px;
-font-size:20px;
-border:none;
-border-radius:15px;
-margin:20px;
+border-radius:20px;
+font-size:18px;
 }
-#yes{background:green;color:white;}
-#no{background:red;color:white;position:absolute;}
+
+.heart{
+font-size:50px;
+animation:beat 1s infinite;
+}
+
+@keyframes beat{
+50%{transform:scale(1.3);}
+}
 </style>
+
 </head>
 
 <body>
 
-<h1>❤️ با من میای بیرون؟ ❤️</h1>
+<div class="card">
 
-<button id="yes" onclick="ok()">آره 😍</button>
-<button id="no">نه 🙈</button>
+<div class="heart">❤️</div>
+
+<h1>زهرا جان</h1>
+
+<h2>یه قرار قشنگ با هم؟ 🥰</h2>
+
+<p>
+📅 تاریخ قرار:
+<br>
+جمعه ۱۵ مرداد ۱۴۰۵
+</p>
+
+<p>
+👔 من:
+<br>
+پیراهن سفید + شلوار مشکی
+</p>
+
+<p>
+👗 تو:
+<br>
+هر لباسی که باهاش احساس زیبایی و راحتی می‌کنی ❤️
+</p>
+
+<p>
+"کنار تو حتی یک روز معمولی هم تبدیل به بهترین خاطره میشه."
+</p>
+
+<button onclick="yes()">
+قبول کردم 😍
+</button>
+
+</div>
 
 <script>
-let no=document.getElementById("no");
-
-no.onmouseover=function(){
-no.style.left=Math.random()*80+"%";
-no.style.top=Math.random()*80+"%";
-}
-
-function ok(){
-document.body.innerHTML="<h1>🥰 پس قرارمون شد ❤️</h1>";
+function yes(){
+document.body.innerHTML=
+"<h1 style='margin-top:150px'>🥰 پس قرارمون شد زهرا ❤️<br>منتظرم</h1>";
 }
 </script>
 
