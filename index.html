@@ -32,6 +32,12 @@ border:0;
 padding:15px 30px;
 border-radius:20px;
 font-size:18px;
+cursor:pointer;
+}
+
+#no{
+background:#777;
+position:absolute;
 }
 
 .heart{
@@ -59,7 +65,7 @@ animation:beat 1s infinite;
 <p>
 📅 تاریخ قرار:
 <br>
-  هروقت تو بگی عشقمم زهرا جوووونم
+هروقت تو بگی عشقمم زهرا جوووونم
 </p>
 
 <p>
@@ -82,13 +88,34 @@ animation:beat 1s infinite;
 قبول کردم 😍
 </button>
 
+<button id="no">
+نه 🙈
+</button>
+
 </div>
 
+
 <script>
+
+let no=document.getElementById("no");
+
+no.addEventListener("mouseover",function(){
+no.style.left=Math.random()*80+"%";
+no.style.top=Math.random()*80+"%";
+});
+
+
+no.addEventListener("touchstart",function(){
+no.style.left=Math.random()*80+"%";
+no.style.top=Math.random()*80+"%";
+});
+
+
 function yes(){
 document.body.innerHTML=
 "<h1 style='margin-top:150px'>پس هروقت مامان بابات رفتن بیا بریم بیرون توروخدا 😭 ❤️<br>بوس بوس بیبی</h1>";
 }
+
 </script>
 
 </body>
