@@ -301,7 +301,7 @@ transform:translateX(0);
 
 display:grid;
 
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(2,minmax(0,1fr));
 
 gap:16px;
 
@@ -326,6 +326,8 @@ box-shadow:0 10px 25px #c75c8c25;
 transition:.3s;
 
 overflow:hidden;
+
+min-width:0;
 
 }
 
@@ -371,6 +373,10 @@ inset 0 0 20px white;
 
 animation:foodFloat 2.5s infinite ease-in-out;
 
+overflow:hidden;
+
+white-space:nowrap;
+
 }
 
 @keyframes foodFloat{
@@ -397,11 +403,35 @@ font-weight:bold;
 
 padding:12px 5px 5px;
 
+word-break:break-word;
+
 }
 
 .next{
 
 margin-top:25px;
+
+}
+
+/* تصویر مخصوص چیپس */
+
+.chips-picture{
+
+font-size:75px;
+
+letter-spacing:-15px;
+
+}
+
+/* تصویر مخصوص همشون */
+
+.all-picture{
+
+font-size:53px;
+
+letter-spacing:-7px;
+
+gap:0;
 
 }
 
@@ -476,6 +506,20 @@ padding:25px 14px;
 height:115px;
 
 font-size:65px;
+
+}
+
+.chips-picture{
+
+font-size:58px;
+
+}
+
+.all-picture{
+
+font-size:39px;
+
+letter-spacing:-5px;
 
 }
 
@@ -699,9 +743,9 @@ onclick="nextFood()">
 
 onclick="selectSnack(this,'چیپس 🥔')">
 
-<div class="food-picture">
+<div class="food-picture chips-picture">
 
-🥔
+🥔🥔
 
 </div>
 
@@ -756,9 +800,9 @@ onclick="selectSnack(this,'بستنی 🍦')">
 
 onclick="selectSnack(this,'همشون 😋')">
 
-<div class="food-picture">
+<div class="food-picture all-picture">
 
-🍟🍦🥔
+🍟 🍦 🥔
 
 </div>
 
