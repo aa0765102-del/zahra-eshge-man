@@ -3,1298 +3,1225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>قرار ما ❤️</title>
+
+<title>دعوت عروسی ابوالفضل و زهرا ❤️</title>
 
 <style>
+
 *{
-  box-sizing:border-box;
+box-sizing:border-box;
 }
 
 body{
-  margin:0;
-  min-height:100vh;
-  font-family:Tahoma,Arial,sans-serif;
-  color:#4a1830;
-  overflow-x:hidden;
-  background:
-  radial-gradient(circle at 15% 20%,#ffffffaa 0 5%,transparent 6%),
-  linear-gradient(135deg,#ffb6d5,#ffd9e8,#fff5fa);
+margin:0;
+min-height:100vh;
+font-family:Tahoma,Arial,sans-serif;
+overflow-x:hidden;
+
+background:
+radial-gradient(
+circle at 15% 15%,
+#ffffff 0,
+#ffffff55 8%,
+transparent 18%
+),
+radial-gradient(
+circle at 85% 80%,
+#f6d990 0,
+transparent 22%
+),
+linear-gradient(
+135deg,
+#f7e8c8,
+#fffdf7,
+#e8c77d
+);
+
+color:#654b28;
 }
 
-/* قلب‌های پس‌زمینه */
+/* پس‌زمینه گل‌ها */
 
-.hearts{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  overflow:hidden;
-  pointer-events:none;
+.background{
+
+position:fixed;
+
+inset:0;
+
+z-index:-1;
+
+overflow:hidden;
+
+pointer-events:none;
+
 }
 
-.floating-heart{
-  position:absolute;
-  bottom:-80px;
-  animation:floatUp linear infinite;
+.background span{
+
+position:absolute;
+
+bottom:-80px;
+
+font-size:35px;
+
+opacity:.75;
+
+animation:
+
+floatFlower
+
+linear
+
+infinite;
+
 }
 
-@keyframes floatUp{
-  0%{
-    transform:translateY(0) rotate(0);
-    opacity:0;
-  }
+@keyframes floatFlower{
 
-  10%{
-    opacity:.8;
-  }
+0%{
 
-  100%{
-    transform:translateY(-115vh) rotate(360deg);
-    opacity:0;
-  }
+transform:
+
+translateY(0)
+
+rotate(0deg);
+
+opacity:0;
+
 }
 
-/* دکمه موزیک */
+10%{
 
-.music-button{
-  position:fixed;
-  top:15px;
-  left:15px;
-  z-index:100;
-  width:54px;
-  height:54px;
-  padding:0;
-  border:0;
-  border-radius:50%;
-  background:linear-gradient(135deg,#e91e63,#ff78a7);
-  color:white;
-  font-size:23px;
-  cursor:pointer;
-  box-shadow:0 8px 20px #e91e6366;
+opacity:.8;
+
 }
+
+100%{
+
+transform:
+
+translateY(-115vh)
+
+rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
 
 /* صفحه */
 
 .page{
-  position:relative;
-  z-index:2;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:25px 15px;
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:25px 12px;
+
 }
 
-/* کارت اصلی */
 
-.card{
-  width:min(720px,95vw);
-  padding:35px 25px;
-  text-align:center;
-  border:2px solid white;
-  border-radius:35px;
-  background:rgba(255,255,255,.87);
-  backdrop-filter:blur(15px);
-  box-shadow:
-  0 20px 60px rgba(170,40,90,.25),
-  inset 0 1px white;
-  animation:cardEnter .8s ease;
-}
-
-@keyframes cardEnter{
-  from{
-    opacity:0;
-    transform:translateY(40px) scale(.92);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-
-/* متن‌ها */
-
-.big-heart{
-  display:inline-block;
-  font-size:70px;
-  animation:heartBeat 1.1s infinite;
-}
-
-@keyframes heartBeat{
-  0%,100%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.25);
-  }
-}
-
-h1{
-  margin:10px;
-  color:#e91e63;
-  font-size:clamp(28px,7vw,48px);
-}
-
-h2{
-  font-size:clamp(20px,5vw,29px);
-}
-
-.info{
-  padding:20px;
-  border-radius:25px;
-  background:#ffe4ef;
-  font-size:17px;
-  line-height:2;
-}
-
-.quote{
-  margin:25px 5px;
-  color:#b51d58;
-  font-size:18px;
-  font-weight:bold;
-  line-height:2;
-}
-
-/* دکمه‌ها */
-
-.buttons{
-  min-height:90px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:15px;
-}
-
-button{
-  padding:15px 25px;
-  border:0;
-  border-radius:50px;
-  font-family:inherit;
-  font-size:18px;
-  cursor:pointer;
-  transition:.25s;
-  box-shadow:0 8px 18px #d98aa955;
-}
-
-button:hover{
-  transform:translateY(-4px) scale(1.05);
-}
-
-#yes,
-.next{
-  color:white;
-  background:linear-gradient(135deg,#e91e63,#ff4f8b);
-}
-
-#no{
-  position:relative;
-  color:white;
-  background:#777;
-}
-
-/* مراحل */
-
-.step{
-  display:none;
-  animation:stepIn .6s ease;
-}
-
-.step.active{
-  display:block;
-}
-
-@keyframes stepIn{
-  from{
-    opacity:0;
-    transform:translateX(-35px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateX(0);
-  }
-}
-
-/* گزینه‌ها */
-
-.options{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
-}
-
-.option{
-  min-width:0;
-  padding:12px;
-  overflow:hidden;
-  cursor:pointer;
-  border:4px solid transparent;
-  border-radius:28px;
-  background:white;
-  box-shadow:0 10px 25px #c75c8c25;
-  transition:.3s;
-}
-
-.option:hover{
-  transform:translateY(-7px) rotate(1deg);
-}
-
-.option.selected{
-  border-color:#e91e63;
-  transform:scale(1.04);
-  box-shadow:0 12px 30px #e91e6355;
-}
-
-.food-picture{
-  height:145px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-  white-space:nowrap;
-  border-radius:20px;
-  font-size:76px;
-  background:
-  radial-gradient(circle,#fff 10%,#ffd5e5 65%,#ff9ec4);
-  box-shadow:inset 0 0 20px white;
-  animation:foodFloat 2.5s infinite ease-in-out;
-}
-
-@keyframes foodFloat{
-  0%,100%{
-    transform:translateY(0) rotate(-3deg);
-  }
-
-  50%{
-    transform:translateY(-8px) rotate(3deg);
-  }
-}
-
-.option-name{
-  padding:12px 5px 5px;
-  font-size:18px;
-  font-weight:bold;
-  word-break:break-word;
-}
-
-.next{
-  margin-top:25px;
-}
-
-/* درصد عشق */
-
-.love-number{
-  margin:15px;
-  color:#e91e63;
-  font-size:65px;
-  font-weight:bold;
-}
-
-.love-range{
-  width:90%;
-  accent-color:#e91e63;
-  cursor:pointer;
-}
-
-.love-message{
-  margin:25px 5px;
-  color:#b51d58;
-  font-size:20px;
-  font-weight:bold;
-}
-
-/* بازی قلب */
-
-.game-area{
-  position:relative;
-  height:360px;
-  margin-top:20px;
-  overflow:hidden;
-  border:3px dashed #e91e63;
-  border-radius:28px;
-  background:linear-gradient(135deg,#ffd5e5,#fff);
-}
-
-.hidden-heart{
-  position:absolute;
-  font-size:42px;
-  cursor:pointer;
-  user-select:none;
-  animation:hidePulse 1.5s infinite;
-}
-
-@keyframes hidePulse{
-  50%{
-    transform:scale(1.25);
-  }
-}
-
-.game-message{
-  margin:15px;
-  color:#b51d58;
-  font-size:19px;
-  font-weight:bold;
-}
-
-/* نامه */
-
-.envelope{
-  position:relative;
-  width:230px;
-  height:155px;
-  margin:30px auto;
-  overflow:hidden;
-  cursor:pointer;
-  border-radius:10px;
-  background:#ff6f9f;
-  box-shadow:0 15px 30px #e91e6355;
-}
-
-.envelope:before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  border-right:115px solid transparent;
-  border-left:115px solid transparent;
-  border-top:85px solid #ff9aba;
-}
-
-.envelope-text{
-  position:absolute;
-  z-index:2;
-  top:95px;
-  width:100%;
-  color:white;
-  font-size:18px;
-  font-weight:bold;
-}
-
-.letter{
-  display:none;
-  padding:25px;
-  border:2px solid #ffb2cc;
-  border-radius:25px;
-  background:#fff8fb;
-  font-size:18px;
-  line-height:2.2;
-  animation:letterOpen .7s ease;
-}
-
-.letter.show{
-  display:block;
-}
-
-@keyframes letterOpen{
-  from{
-    opacity:0;
-    transform:scale(.7) rotate(-4deg);
-  }
-
-  to{
-    opacity:1;
-    transform:scale(1) rotate(0);
-  }
-}
-
-/* نتیجه */
-
-.result-box{
-  padding:25px;
-  border-radius:28px;
-  background:linear-gradient(135deg,#ffe0ed,#fff);
-  font-size:20px;
-  line-height:2.3;
-  box-shadow:0 10px 30px #e91e6322;
-}
-
-.result-choice{
-  color:#e91e63;
-  font-size:23px;
-  font-weight:bold;
-}
-
-.signature{
-  margin-top:25px;
-  color:#b51d58;
-  font-size:19px;
-  font-weight:bold;
-  line-height:2;
-}
-
-/* کارت دعوت عروسی */
-
-.wedding-start{
-  margin-top:28px;
-  color:white;
-  font-size:17px;
-  background:
-  linear-gradient(135deg,#b8872e,#f5d77c,#b8872e);
-}
+/* بخش اصلی */
 
 .wedding-scene{
-  position:relative;
-  min-height:650px;
-  padding:20px 5px 50px;
-  overflow:hidden;
-  border-radius:30px;
-  background:
-  radial-gradient(circle at 50% 20%,#fffdf6,#f7ead0 60%,#e8c983);
-  box-shadow:
-  inset 0 0 40px white,
-  0 20px 50px #a87b2833;
+
+width:
+
+min(
+750px,
+96vw
+);
+
+min-height:650px;
+
+padding:
+
+30px 15px 60px;
+
+text-align:center;
+
+overflow:hidden;
+
+border:
+
+2px solid #ffffff;
+
+border-radius:35px;
+
+background:
+
+rgba(
+255,
+253,
+246,
+.70
+);
+
+backdrop-filter:
+
+blur(12px);
+
+box-shadow:
+
+0 25px 70px
+#8b682b44,
+
+inset
+0 0 50px
+#ffffff;
+
 }
 
+
+/* تیتر */
+
 .wedding-title{
-  margin-top:10px;
-  color:#9a7028;
-  font-size:28px;
-  font-weight:bold;
-  text-shadow:0 2px 5px white;
+
+margin-top:5px;
+
+color:#9a7028;
+
+font-size:
+
+clamp(
+24px,
+6vw,
+38px
+);
+
+font-weight:bold;
+
+text-shadow:
+
+0 2px 5px
+#ffffff;
+
 }
 
 .wedding-subtitle{
-  margin-bottom:35px;
-  color:#76552b;
-  font-size:17px;
+
+color:#76552b;
+
+font-size:17px;
+
+line-height:2;
+
 }
+
 
 /* پاکت */
 
 .wedding-envelope{
-  position:relative;
-  width:min(430px,90%);
-  height:285px;
-  margin:30px auto;
-  cursor:pointer;
-  perspective:1200px;
-  filter:drop-shadow(0 22px 20px #805f283d);
-  transition:.8s;
+
+position:relative;
+
+width:
+
+min(
+440px,
+92%
+);
+
+height:290px;
+
+margin:
+
+45px auto 30px;
+
+cursor:pointer;
+
+perspective:1200px;
+
+filter:
+
+drop-shadow(
+0 25px 22px
+#805f2844
+);
+
+transition:.8s;
+
 }
 
 .wedding-envelope:hover{
-  transform:translateY(-8px) scale(1.02);
+
+transform:
+
+translateY(-8px)
+
+scale(1.03);
+
 }
 
 .envelope-back{
-  position:absolute;
-  inset:0;
-  border:2px solid #b68b38;
-  border-radius:12px;
-  background:
-  linear-gradient(135deg,#f7e9c7,#d8b56a);
+
+position:absolute;
+
+inset:0;
+
+border:
+
+2px solid
+#b68b38;
+
+border-radius:
+
+14px;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#fff2cf,
+
+#d4aa55
+
+);
+
 }
 
 .envelope-card{
-  position:absolute;
-  z-index:2;
-  left:9%;
-  bottom:8%;
-  width:82%;
-  height:82%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:15px;
-  border-radius:10px;
-  background:
-  linear-gradient(135deg,#fffdf8,#f8e9c7);
-  box-shadow:0 5px 20px #5f421844;
-  transition:1.4s cubic-bezier(.2,.8,.2,1);
+
+position:absolute;
+
+z-index:2;
+
+left:9%;
+
+bottom:8%;
+
+width:82%;
+
+height:82%;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:15px;
+
+border-radius:12px;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#fffdf8,
+
+#f8e6bd
+
+);
+
+box-shadow:
+
+0 5px 20px
+#5f421844;
+
+transition:
+
+1.4s
+
+cubic-bezier(
+.2,
+.8,
+.2,
+1
+);
+
 }
 
 .envelope-names{
-  color:#a77a28;
-  font-size:23px;
-  font-weight:bold;
+
+color:#a77a28;
+
+font-size:25px;
+
+font-weight:bold;
+
 }
 
 .tiny-flower{
-  font-size:25px;
+
+font-size:28px;
+
 }
 
 .envelope-front{
-  position:absolute;
-  z-index:5;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:70%;
-  border-radius:0 0 12px 12px;
-  background:
-  linear-gradient(135deg,transparent 50%,#e6ca8e 50%),
-  linear-gradient(225deg,transparent 50%,#f8e6bb 50%);
+
+position:absolute;
+
+z-index:5;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:70%;
+
+border-radius:
+
+0 0 14px 14px;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+transparent 50%,
+
+#e6ca8e 50%
+
+),
+
+linear-gradient(
+
+225deg,
+
+transparent 50%,
+
+#f8e6bb 50%
+
+);
+
 }
 
 .envelope-flap{
-  position:absolute;
-  z-index:7;
-  top:0;
-  left:0;
-  width:100%;
-  height:62%;
-  transform-origin:top center;
-  clip-path:polygon(0 0,100% 0,50% 100%);
-  background:
-  linear-gradient(135deg,#f9e9c5,#d4aa55);
-  transition:1s ease;
+
+position:absolute;
+
+z-index:7;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:62%;
+
+transform-origin:
+
+top center;
+
+clip-path:
+
+polygon(
+
+0 0,
+
+100% 0,
+
+50% 100%
+
+);
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#fff0cc,
+
+#cfa04a
+
+);
+
+transition:
+
+1s ease;
+
 }
 
 .wedding-seal{
-  position:absolute;
-  z-index:10;
-  top:48%;
-  left:50%;
-  width:64px;
-  height:64px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  transform:translate(-50%,-50%);
-  border:3px solid #fff0ae;
-  border-radius:50%;
-  background:
-  radial-gradient(circle,#f8d879,#b78026);
-  box-shadow:0 5px 15px #80551d88;
-  font-size:32px;
-  transition:.7s;
+
+position:absolute;
+
+z-index:10;
+
+top:48%;
+
+left:50%;
+
+width:68px;
+
+height:68px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+transform:
+
+translate(
+-50%,
+-50%
+);
+
+border:
+
+3px solid
+#fff0ae;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+
+circle,
+
+#ffe690,
+
+#a97020
+
+);
+
+box-shadow:
+
+0 6px 18px
+#a16e2488;
+
+font-size:35px;
+
+transition:.7s;
+
 }
 
-/* باز شدن پاکت */
+
+/* حالت باز شدن */
 
 .wedding-envelope.open{
-  margin-bottom:260px;
+
+margin-bottom:
+
+270px;
+
 }
 
-.wedding-envelope.open .envelope-flap{
-  z-index:1;
-  transform:rotateX(180deg);
+.wedding-envelope.open
+.envelope-flap{
+
+z-index:1;
+
+transform:
+
+rotateX(
+180deg
+);
+
 }
 
-.wedding-envelope.open .wedding-seal{
-  opacity:0;
-  transform:translate(-50%,-50%) scale(1.8);
+.wedding-envelope.open
+.wedding-seal{
+
+opacity:0;
+
+transform:
+
+translate(
+-50%,
+-50%
+)
+
+scale(
+1.8
+);
+
 }
 
-.wedding-envelope.open .envelope-card{
-  transform:translateY(-240px) scale(1.08);
-  box-shadow:0 25px 50px #6d4a1f66;
+.wedding-envelope.open
+.envelope-card{
+
+transform:
+
+translateY(
+-245px
+)
+
+scale(
+1.08
+);
+
+box-shadow:
+
+0 25px 50px
+#6d4a1f66;
+
 }
 
-/* کارت اصلی عروسی */
+
+/* کارت دعوت */
 
 .wedding-invitation{
-  position:relative;
-  display:none;
-  width:min(550px,96%);
-  margin:20px auto;
-  padding:45px 25px;
-  border:3px solid #c69a42;
-  border-radius:20px;
-  background:
-  linear-gradient(135deg,#fffdf7,#f7edda,#fffdf8);
-  box-shadow:
-  0 20px 55px #79552655,
-  inset 0 0 0 8px white,
-  inset 0 0 0 10px #e4c987;
-  animation:invitationOpen 1.5s cubic-bezier(.2,.8,.2,1);
+
+position:relative;
+
+display:none;
+
+width:
+
+min(
+570px,
+96%
+);
+
+margin:
+
+20px auto;
+
+padding:
+
+50px 25px;
+
+overflow:hidden;
+
+border:
+
+3px solid
+#c69a42;
+
+border-radius:
+
+22px;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#fffdf7,
+
+#f6ead2,
+
+#fffdf8
+
+);
+
+box-shadow:
+
+0 25px 60px
+#79552666,
+
+inset
+0 0 0 8px
+#ffffff,
+
+inset
+0 0 0 11px
+#e4c987;
+
+animation:
+
+invitationOpen
+
+1.5s
+
+cubic-bezier(
+.2,
+.8,
+.2,
+1
+);
+
 }
 
 .wedding-invitation.show{
-  display:block;
+
+display:block;
+
 }
 
 @keyframes invitationOpen{
-  0%{
-    opacity:0;
-    transform:
-    translateY(100px)
-    rotateX(70deg)
-    scale(.7);
-  }
 
-  60%{
-    opacity:1;
-    transform:
-    translateY(-15px)
-    rotateX(0)
-    scale(1.03);
-  }
+0%{
 
-  100%{
-    transform:
-    translateY(0)
-    scale(1);
-  }
+opacity:0;
+
+transform:
+
+translateY(
+100px
+)
+
+rotateX(
+70deg
+)
+
+scale(
+.65
+);
+
 }
 
-/* گل‌های کارت */
+60%{
+
+opacity:1;
+
+transform:
+
+translateY(
+-15px
+)
+
+rotateX(
+0
+)
+
+scale(
+1.03
+);
+
+}
+
+100%{
+
+transform:
+
+translateY(
+0
+)
+
+scale(
+1
+);
+
+}
+
+}
+
+
+/* گل‌ها */
 
 .flower{
-  position:absolute;
-  font-size:42px;
-  animation:flowerDance 3s infinite ease-in-out;
+
+position:absolute;
+
+font-size:45px;
+
+animation:
+
+flowerDance
+
+3s
+
+infinite
+
+ease-in-out;
+
 }
 
 .flower-one{
-  top:12px;
-  right:15px;
+
+top:12px;
+
+right:18px;
+
 }
 
 .flower-two{
-  top:15px;
-  left:15px;
-  animation-delay:.7s;
+
+top:15px;
+
+left:18px;
+
+animation-delay:.7s;
+
 }
 
 .flower-three{
-  right:20px;
-  bottom:12px;
-  animation-delay:1.2s;
+
+right:18px;
+
+bottom:12px;
+
+animation-delay:1.2s;
+
 }
 
 .flower-four{
-  bottom:12px;
-  left:20px;
-  animation-delay:1.8s;
+
+bottom:12px;
+
+left:18px;
+
+animation-delay:1.8s;
+
 }
 
 @keyframes flowerDance{
-  50%{
-    transform:rotate(18deg) scale(1.15);
-  }
+
+50%{
+
+transform:
+
+rotate(
+18deg
+)
+
+scale(
+1.18
+);
+
 }
 
+}
+
+
+/* نوشته‌های کارت */
+
 .rings{
-  margin-bottom:10px;
-  font-size:70px;
-  animation:ringGlow 2s infinite;
+
+margin-bottom:10px;
+
+font-size:76px;
+
+animation:
+
+ringGlow
+
+2s
+
+infinite;
+
 }
 
 @keyframes ringGlow{
-  50%{
-    transform:scale(1.15);
-    filter:drop-shadow(0 0 10px #d5a63d);
-  }
+
+50%{
+
+transform:
+
+scale(
+1.15
+);
+
+filter:
+
+drop-shadow(
+
+0 0 12px
+
+#d5a63d
+
+);
+
+}
+
 }
 
 .invitation-small{
-  margin-bottom:12px;
-  color:#a1782d;
-  font-family:serif;
-  font-size:20px;
+
+margin-bottom:12px;
+
+color:#a1782d;
+
+font-family:serif;
+
+font-size:22px;
+
 }
 
 .wedding-names{
-  color:#9b7028;
-  font-family:serif;
-  font-size:clamp(32px,8vw,55px);
-  line-height:1.5;
+
+margin:10px;
+
+color:#9b7028;
+
+font-family:serif;
+
+font-size:
+
+clamp(
+34px,
+8vw,
+58px
+);
+
+line-height:1.5;
+
 }
 
 .wedding-names span{
-  display:inline-block;
-  font-size:30px;
-  animation:heartBeat 1.2s infinite;
+
+display:inline-block;
+
+font-size:32px;
+
+animation:
+
+heartBeat
+
+1.2s
+
+infinite;
+
+}
+
+@keyframes heartBeat{
+
+50%{
+
+transform:
+
+scale(
+1.3
+);
+
+}
+
 }
 
 .gold-line{
-  margin:20px;
-  color:#c3973d;
-  font-size:20px;
+
+margin:20px;
+
+color:#c3973d;
+
+font-size:21px;
+
 }
 
 .invitation-text{
-  color:#654c2c;
-  font-size:18px;
-  line-height:2.3;
+
+color:#654c2c;
+
+font-size:19px;
+
+line-height:2.4;
+
 }
 
 .wedding-details{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin:28px 0;
-  padding:18px 5px;
-  color:#88652c;
-  border-top:1px solid #d9bc79;
-  border-bottom:1px solid #d9bc79;
-  font-size:15px;
-  line-height:1.8;
+
+display:grid;
+
+grid-template-columns:
+
+repeat(
+3,
+1fr
+);
+
+gap:10px;
+
+margin:
+
+30px 0;
+
+padding:
+
+20px 5px;
+
+color:#88652c;
+
+border-top:
+
+1px solid
+#d9bc79;
+
+border-bottom:
+
+1px solid
+#d9bc79;
+
+font-size:16px;
+
+line-height:1.9;
+
 }
 
 .closing-text{
-  color:#754c35;
-  font-size:18px;
-  font-weight:bold;
+
+color:#754c35;
+
+font-size:19px;
+
+font-weight:bold;
+
 }
 
 .wedding-signature{
-  color:#a4772d;
-  font-size:24px;
-  font-weight:bold;
-  line-height:1.8;
+
+color:#a4772d;
+
+font-size:26px;
+
+font-weight:bold;
+
+line-height:1.9;
+
 }
 
+
+/* پیام آخر */
+
 .wedding-message{
-  display:none;
-  max-width:500px;
-  margin:25px auto;
-  padding:20px;
-  border-radius:25px;
-  background:rgba(255,255,255,.75);
-  color:#9a3e61;
-  font-size:19px;
-  font-weight:bold;
-  line-height:2;
-  animation:letterOpen 1s ease;
+
+display:none;
+
+max-width:520px;
+
+margin:
+
+30px auto 0;
+
+padding:
+
+22px;
+
+border:
+
+2px solid
+#e4c987;
+
+border-radius:
+
+28px;
+
+background:
+
+rgba(
+255,
+255,
+255,
+.80
+);
+
+color:#9a3e61;
+
+font-size:20px;
+
+font-weight:bold;
+
+line-height:2.1;
+
+box-shadow:
+
+0 10px 30px
+#9d6b2d33;
+
+animation:
+
+messageShow
+
+1s ease;
+
 }
 
 .wedding-message.show{
-  display:block;
+
+display:block;
+
 }
 
-/* بارش قلب و گل */
+@keyframes messageShow{
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(
+30px
+)
+
+scale(
+.8
+);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+
+translateY(
+0
+)
+
+scale(
+1
+);
+
+}
+
+}
+
+
+/* بارش گل */
 
 .confetti{
-  position:fixed;
-  top:-30px;
-  z-index:300;
-  pointer-events:none;
-  animation:fall linear forwards;
+
+position:fixed;
+
+top:-50px;
+
+z-index:100;
+
+pointer-events:none;
+
+animation:
+
+fall
+
+linear
+
+forwards;
+
 }
 
 @keyframes fall{
-  to{
-    transform:
-    translateY(115vh)
-    rotate(720deg);
-    opacity:0;
-  }
+
+to{
+
+transform:
+
+translateY(
+115vh
+)
+
+rotate(
+720deg
+);
+
+opacity:0;
+
 }
+
+}
+
 
 /* موبایل */
 
-@media(max-width:520px){
+@media(
 
-  .card{
-    padding:25px 14px;
-    border-radius:28px;
-  }
+max-width:520px
 
-  .food-picture{
-    height:115px;
-    font-size:61px;
-  }
+){
 
-  .option-name{
-    font-size:16px;
-  }
+.wedding-scene{
 
-  button{
-    padding:13px 18px;
-    font-size:16px;
-  }
+padding:
 
-  .game-area{
-    height:320px;
-  }
+25px 7px 50px;
 
-  .wedding-scene{
-    min-height:580px;
-  }
-
-  .wedding-title{
-    font-size:23px;
-  }
-
-  .wedding-envelope{
-    height:225px;
-  }
-
-  .wedding-envelope.open{
-    margin-bottom:210px;
-  }
-
-  .wedding-envelope.open .envelope-card{
-    transform:
-    translateY(-195px)
-    scale(1.04);
-  }
-
-  .envelope-names{
-    font-size:18px;
-  }
-
-  .wedding-invitation{
-    padding:38px 15px;
-  }
-
-  .invitation-text{
-    font-size:16px;
-  }
-
-  .wedding-details{
-    gap:4px;
-    font-size:12px;
-  }
-
-  .wedding-names{
-    font-size:35px;
-  }
+border-radius:28px;
 
 }
+
+.wedding-title{
+
+font-size:24px;
+
+}
+
+.wedding-envelope{
+
+height:225px;
+
+margin-top:35px;
+
+}
+
+.wedding-envelope.open{
+
+margin-bottom:
+
+210px;
+
+}
+
+.wedding-envelope.open
+.envelope-card{
+
+transform:
+
+translateY(
+-195px
+)
+
+scale(
+1.04
+);
+
+}
+
+.envelope-names{
+
+font-size:19px;
+
+}
+
+.wedding-invitation{
+
+padding:
+
+42px 15px;
+
+}
+
+.invitation-text{
+
+font-size:16px;
+
+}
+
+.wedding-details{
+
+gap:4px;
+
+font-size:12px;
+
+}
+
+.wedding-names{
+
+font-size:38px;
+
+}
+
+.wedding-message{
+
+font-size:17px;
+
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<button class="music-button" id="musicButton" onclick="toggleMusic()">
-🎵
-</button>
-
-<div class="hearts" id="hearts"></div>
+<div class="background"
+id="background"></div>
 
 <div class="page">
-
-<div class="card">
-
-<!-- مرحله 1 -->
-
-<section class="step active" id="step1">
-
-<div class="big-heart">❤️</div>
-
-<h1>زهرای من ❤️</h1>
-
-<h2>یه قرار قشنگ با هم؟ 🥰</h2>
-
-<div class="info">
-
-📅 تاریخ قرار:
-
-<br>
-
-<b>هروقت تو بگی عشقمم زهرا جوووونم ❤️</b>
-
-<br><br>
-
-👔 من:
-
-<br>
-
-<b>پیراهن طوسی + شلوار مشکی</b>
-
-<br><br>
-
-👗 تو:
-
-<br>
-
-<b>هر لباسی که باهاش احساس زیبایی و راحتی می‌کنی ❤️</b>
-
-</div>
-
-<div class="quote">
-
-«کنار تو حتی یک روز معمولی هم تبدیل به بهترین خاطره میشه.»
-
-</div>
-
-<div class="buttons">
-
-<button id="yes" onclick="goStep(2)">
-قبول کردم 😍
-</button>
-
-<button id="no">
-نه 🙈
-</button>
-
-</div>
-
-</section>
-
-<!-- مرحله 2: غذا -->
-
-<section class="step" id="step2">
-
-<div class="big-heart">🍽️</div>
-
-<h1>عشقم، چی دوست داری بخوریم؟ 😋</h1>
-
-<p>یکی رو انتخاب کن، قول میدم خوشمزه باشه 😍</p>
-
-<div class="options">
-
-<div class="option" onclick="selectFood(this,'فلافل 🥙')">
-
-<div class="food-picture">🥙</div>
-
-<div class="option-name">
-فلافل 🥙
-</div>
-
-</div>
-
-<div class="option" onclick="selectFood(this,'قورمه‌سبزی 🍛')">
-
-<div class="food-picture">🍛</div>
-
-<div class="option-name">
-قورمه‌سبزی 🍛
-</div>
-
-</div>
-
-<div class="option" onclick="selectFood(this,'سیب‌زمینی سرخ‌کرده 🍟')">
-
-<div class="food-picture">🍟</div>
-
-<div class="option-name">
-سیب‌زمینی سرخ‌کرده 🍟
-</div>
-
-</div>
-
-<div class="option" onclick="selectFood(this,'آش 🍲')">
-
-<div class="food-picture">🍲</div>
-
-<div class="option-name">
-آش 🍲
-</div>
-
-</div>
-
-</div>
-
-<button class="next" onclick="nextFood()">
-مرحله بعد 😍
-</button>
-
-</section>
-
-<!-- مرحله 3: خوراکی -->
-
-<section class="step" id="step3">
-
-<div class="big-heart">😋</div>
-
-<h1>حالا برای خوراکی چی دوست داری؟ 😍</h1>
-
-<p>اینجا انتخاب سخت‌تره، می‌دونم 😂❤️</p>
-
-<div class="options">
-
-<div class="option" onclick="selectSnack(this,'چیپس 🥔')">
-
-<div class="food-picture">🥔</div>
-
-<div class="option-name">
-چیپس 🥔
-</div>
-
-</div>
-
-<div class="option" onclick="selectSnack(this,'پفک 🧀')">
-
-<div class="food-picture">🧀</div>
-
-<div class="option-name">
-پفک 🧀
-</div>
-
-</div>
-
-<div class="option" onclick="selectSnack(this,'بستنی 🍦')">
-
-<div class="food-picture">🍦</div>
-
-<div class="option-name">
-بستنی 🍦
-</div>
-
-</div>
-
-<div class="option" onclick="selectSnack(this,'همشون 😋')">
-
-<div class="food-picture" style="font-size:40px">
-🍟 🍦 🥔
-</div>
-
-<div class="option-name">
-همشون 😋
-</div>
-
-</div>
-
-</div>
-
-<button class="next" onclick="nextSnack()">
-مرحله بعد ❤️
-</button>
-
-</section>
-
-<!-- مرحله 4: مکان -->
-
-<section class="step" id="step4">
-
-<div class="big-heart">📍</div>
-
-<h1>حالا کجا بریم عشقم؟ 😍</h1>
-
-<p>مکان قرارمون رو تو انتخاب کن ❤️</p>
-
-<div class="options">
-
-<div class="option" onclick="selectPlace(this,'پارک 🌳')">
-
-<div class="food-picture">🌳</div>
-
-<div class="option-name">
-پارک 🌳
-</div>
-
-</div>
-
-<div class="option" onclick="selectPlace(this,'سینما 🎬')">
-
-<div class="food-picture">🎬</div>
-
-<div class="option-name">
-سینما 🎬
-</div>
-
-</div>
-
-<div class="option" onclick="selectPlace(this,'کافه ☕')">
-
-<div class="food-picture">☕</div>
-
-<div class="option-name">
-کافه ☕
-</div>
-
-</div>
-
-<div class="option" onclick="selectPlace(this,'ماشین 🚗')">
-
-<div class="food-picture">🚗</div>
-
-<div class="option-name">
-ماشین 🚗
-</div>
-
-</div>
-
-</div>
-
-<button class="next" onclick="nextPlace()">
-مرحله بعد ❤️
-</button>
-
-</section>
-
-<!-- مرحله 5: درصد عشق -->
-
-<section class="step" id="step5">
-
-<div class="big-heart">🥺❤️</div>
-
-<h1>زهرای من، چقدر منو دوست داری؟</h1>
-
-<div class="love-number" id="loveNumber">
-50٪
-</div>
-
-<input
-class="love-range"
-type="range"
-min="0"
-max="100"
-value="50"
-id="loveRange"
-oninput="updateLove()">
-
-<div class="love-message" id="loveMessage">
-
-همینم خیلی خوبه ولی بیشترش کن 😄❤️
-
-</div>
-
-<button class="next" onclick="goStep(6)">
-مرحله بعد 😍
-</button>
-
-</section>
-
-<!-- مرحله 6: بازی -->
-
-<section class="step" id="step6">
-
-<div class="big-heart">🎮❤️</div>
-
-<h1>سه تا قلب رو پیدا کن 😍</h1>
-
-<p>هر سه قلب رو لمس کن تا جایزه بگیری ❤️</p>
-
-<div class="game-area">
-
-<span class="hidden-heart"
-style="top:30px;right:25px">
-❤️
-</span>
-
-<span class="hidden-heart"
-style="bottom:55px;left:30px">
-💖
-</span>
-
-<span class="hidden-heart"
-style="top:155px;left:48%">
-💕
-</span>
-
-</div>
-
-<div class="game-message" id="gameMessage">
-
-تا الان ۰ تا قلب پیدا کردی 😄
-
-</div>
-
-<button class="next"
-id="gameNext"
-onclick="goStep(7)"
-style="display:none">
-
-جایزه‌مو می‌خوام 😍
-
-</button>
-
-</section>
-
-<!-- مرحله 7: نامه -->
-
-<section class="step" id="step7">
-
-<div class="big-heart">💌</div>
-
-<h1>یه نامه برای زهرای من ❤️</h1>
-
-<p>روی پاکت بزن تا نامه باز بشه 😍</p>
-
-<div class="envelope" onclick="openLetter()">
-
-<div class="envelope-text">
-
-برای زهرای من 💌
-
-</div>
-
-</div>
-
-<div class="letter" id="letter">
-
-زهرا جان ❤️
-
-<br><br>
-
-فقط خواستم بدونی که کنار تو بودن،
-برای من یکی از قشنگ‌ترین اتفاق‌های دنیاست.
-
-<br>
-
-حتی یک روز معمولی کنار تو،
-برای من تبدیل به بهترین خاطره میشه 🥹❤️
-
-<br><br>
-
-دوستت دارم بیبی 😘
-
-</div>
-
-<button class="next" onclick="showResult()">
-
-ثبت نهایی قرارمون ❤️
-
-</button>
-
-</section>
-
-<!-- مرحله 8: نتیجه -->
-
-<section class="step" id="step8">
-
-<div class="big-heart">💖</div>
-
-<h1>قرارمون ثبت شد 😍</h1>
-
-<div class="result-box">
-
-🍽️ غذای انتخابی:
-
-<div class="result-choice" id="foodResult">
-—
-</div>
-
-😋 خوراکی انتخابی:
-
-<div class="result-choice" id="snackResult">
-—
-</div>
-
-📍 مکان قرار:
-
-<div class="result-choice" id="placeResult">
-—
-</div>
-
-❤️ مقدار عشق زهرا:
-
-<div class="result-choice" id="loveResult">
-—
-</div>
-
-<br>
-
-🥹 حالا فقط منتظرم هروقت گفتی بریم بیرون
-
-<br>
-
-😘 بوس بوس بیبی
-
-</div>
-
-<div class="signature">
-
-ساخته شده با عشق ❤️
-
-<br>
-
-برای زهرای من 💖
-
-<br>
-
-از طرف امیرت 😘
-
-</div>
-
-<button class="next wedding-start" onclick="goStep(9)">
-
-💍 یه سورپرایز ویژه برای زهرای من 💍
-
-</button>
-
-</section>
-
-<!-- مرحله 9: کارت دعوت عروسی -->
-
-<section class="step" id="step9">
 
 <div class="wedding-scene">
 
@@ -1310,16 +1237,27 @@ style="display:none">
 
 </p>
 
-<div class="wedding-envelope"
+
+<!-- پاکت -->
+
+<div
+
+class="wedding-envelope"
+
 id="weddingEnvelope"
-onclick="openWedding()">
+
+onclick="openWedding()"
+
+>
 
 <div class="envelope-back"></div>
 
 <div class="envelope-card">
 
 <div class="tiny-flower">
+
 🌸
+
 </div>
 
 <div class="envelope-names">
@@ -1329,7 +1267,9 @@ onclick="openWedding()">
 </div>
 
 <div class="tiny-flower">
+
 🌸
+
 </div>
 
 </div>
@@ -1346,27 +1286,46 @@ onclick="openWedding()">
 
 </div>
 
-<div class="wedding-invitation"
-id="weddingInvitation">
+
+<!-- کارت دعوت -->
+
+<div
+
+class="wedding-invitation"
+
+id="weddingInvitation"
+
+>
 
 <div class="flower flower-one">
+
 🌸
+
 </div>
 
 <div class="flower flower-two">
+
 🌺
+
 </div>
 
 <div class="flower flower-three">
+
 🌸
+
 </div>
 
 <div class="flower flower-four">
+
 🌺
+
 </div>
 
+
 <div class="rings">
+
 💍
+
 </div>
 
 <div class="invitation-small">
@@ -1379,7 +1338,11 @@ id="weddingInvitation">
 
 ابوالفضل
 
-<span>❤️</span>
+<span>
+
+❤️
+
+</span>
 
 زهرا
 
@@ -1403,6 +1366,7 @@ id="weddingInvitation">
 
 </p>
 
+
 <div class="wedding-details">
 
 <div>
@@ -1411,7 +1375,11 @@ id="weddingInvitation">
 
 <br>
 
-<strong>به‌زودی</strong>
+<strong>
+
+به‌زودی
+
+</strong>
 
 </div>
 
@@ -1421,7 +1389,11 @@ id="weddingInvitation">
 
 <br>
 
-<strong>به وقت عاشقی</strong>
+<strong>
+
+به وقت عاشقی
+
+</strong>
 
 </div>
 
@@ -1431,5 +1403,331 @@ id="weddingInvitation">
 
 <br>
 
-<strong>جایی که قلب‌هامان کنار هم باشد</strong>
-  
+<strong>
+
+جایی که قلب‌هامان کنار هم باشد
+
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="gold-line">
+
+✦ ───── ✦
+
+</div>
+
+<p class="closing-text">
+
+با عشق و افتخار منتظر حضور شما هستیم ❤️
+
+</p>
+
+<div class="wedding-signature">
+
+ابوالفضل و زهرا
+
+<br>
+
+💖
+
+</div>
+
+</div>
+
+
+<div
+
+class="wedding-message"
+
+id="weddingMessage"
+
+>
+
+🥹❤️ زهرا جان،
+
+امیدوارم یه روز این کارت
+
+دیگه فقط یه رویا نباشه...
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* گل‌های پس‌زمینه */
+
+const background=
+
+document.getElementById(
+"background"
+);
+
+const backgroundFlowers=
+
+[
+"🌸",
+"🌺",
+"🤍",
+"✨",
+"💖"
+];
+
+for(
+
+let i=0;
+
+i<25;
+
+i++
+
+){
+
+const flower=
+
+document.createElement(
+"span"
+);
+
+flower.innerHTML=
+
+backgroundFlowers[
+
+Math.floor(
+
+Math.random()*
+
+backgroundFlowers.length
+
+)
+
+];
+
+flower.style.left=
+
+Math.random()*100+
+
+"%";
+
+flower.style.fontSize=
+
+20+
+
+Math.random()*30+
+
+"px";
+
+flower.style.animationDuration=
+
+6+
+
+Math.random()*8+
+
+"s";
+
+flower.style.animationDelay=
+
+Math.random()*8+
+
+"s";
+
+background.appendChild(
+
+flower
+
+);
+
+}
+
+
+/* باز شدن پاکت */
+
+function openWedding(){
+
+const envelope=
+
+document.getElementById(
+
+"weddingEnvelope"
+
+);
+
+const invitation=
+
+document.getElementById(
+
+"weddingInvitation"
+
+);
+
+const message=
+
+document.getElementById(
+
+"weddingMessage"
+
+);
+
+
+if(
+
+envelope.classList.contains(
+
+"open"
+
+)
+
+){
+
+return;
+
+}
+
+
+envelope.classList.add(
+
+"open"
+
+);
+
+
+setTimeout(
+
+function(){
+
+invitation.classList.add(
+
+"show"
+
+);
+
+message.classList.add(
+
+"show"
+
+);
+
+weddingCelebrate();
+
+},
+
+900
+
+);
+
+}
+
+
+/* بارش گل و قلب */
+
+function weddingCelebrate(){
+
+const flowers=
+
+[
+
+"🌸",
+
+"🌺",
+
+"✨",
+
+"💖",
+
+"🤍"
+
+];
+
+
+for(
+
+let i=0;
+
+i<80;
+
+i++
+
+){
+
+const flower=
+
+document.createElement(
+
+"div"
+
+);
+
+flower.className=
+
+"confetti";
+
+flower.innerHTML=
+
+flowers[
+
+Math.floor(
+
+Math.random()*
+
+flowers.length
+
+)
+
+];
+
+flower.style.left=
+
+Math.random()*100+
+
+"vw";
+
+flower.style.fontSize=
+
+15+
+
+Math.random()*28+
+
+"px";
+
+flower.style.animationDuration=
+
+3+
+
+Math.random()*3+
+
+"s";
+
+document.body.appendChild(
+
+flower
+
+);
+
+
+setTimeout(
+
+function(){
+
+flower.remove();
+
+},
+
+6500
+
+);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
